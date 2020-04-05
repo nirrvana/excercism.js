@@ -3,8 +3,28 @@
 // convenience to get you started writing code faster.
 //
 
-export const colorCode = () => {
-  throw new Error("Remove this statement and implement this function");
+// sol.1
+// export const colorCode = (color) => COLORS.indexOf(color.toLowerCase());
+
+// sol.2
+export const colorCode = (color) => {
+  for (let index = 0; index < COLORS.length; index++) {
+    if (COLORS[index] === color) {
+      return index;
+    }
+  }
+  return -1;
 };
 
-export const COLORS = undefined;
+export const COLORS = [
+  'black',
+  'brown',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'violet',
+  'grey',
+  'white',
+];
