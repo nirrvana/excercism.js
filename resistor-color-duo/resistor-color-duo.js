@@ -3,6 +3,24 @@
 // convenience to get you started writing code faster.
 //
 
-export const decodedValue = () => {
-  throw new Error("Remove this statement and implement this function");
+export const decodedValue = (colors) => {
+  let result = '';
+
+  for (let index = 0; index < 2; index++) {
+    result += COLORS.indexOf(colors[index]);
+  }
+  return Number(result);
 };
+
+const COLORS = [
+  'black',
+  'brown',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'violet',
+  'grey',
+  'white',
+];
