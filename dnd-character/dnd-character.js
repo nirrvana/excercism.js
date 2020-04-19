@@ -3,40 +3,68 @@
 // convenience to get you started writing code faster.
 //
 
-export const abilityModifier = () => {
-  throw new Error("Remove this statement and implement this function");
+export const abilityModifier = (score) => {
+  if (score < 3) {
+    throw new Error('Ability scores must be at least 3');
+  } else if (score > 18) {
+    throw new Error('Ability scores can be at most 18');
+  } else {
+    return Math.floor((score - 10) / 2);
+  }
 };
 
 export class Character {
+  constructor() {
+    this._strength = Character.rollAbility();
+    this._dexterity = Character.rollAbility();
+    this._constitution = Character.rollAbility();
+    this._intelligence = Character.rollAbility();
+    this._wisdom = Character.rollAbility();
+    this._charisma = Character.rollAbility();
+    this._hitpoints = 10 + abilityModifier(this.constitution);
+  }
+
+  static getScore() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+
   static rollAbility() {
-    throw new Error("Remove this statement and implement this function");
+    const scores = [
+      Character.getScore(),
+      Character.getScore(),
+      Character.getScore(),
+      Character.getScore(),
+    ];
+    const sum = scores.reduce((prev, curr) => (prev += curr), 0);
+    const min = Math.min(...scores);
+    return sum - min;
   }
 
   get strength() {
-    throw new Error("Remove this statement and implement this function");
+    return this._strength;
   }
 
   get dexterity() {
-    throw new Error("Remove this statement and implement this function");
+    return this._dexterity;
   }
 
   get constitution() {
-    throw new Error("Remove this statement and implement this function");
+    return this._constitution;
   }
 
   get intelligence() {
-    throw new Error("Remove this statement and implement this function");
+    return this._intelligence;
   }
 
   get wisdom() {
-    throw new Error("Remove this statement and implement this function");
+    return this._wisdom;
   }
 
   get charisma() {
-    throw new Error("Remove this statement and implement this function");
+    return this._charisma;
   }
 
   get hitpoints() {
-    throw new Error("Remove this statement and implement this function");
+    return this._hitpoints;
   }
 }
